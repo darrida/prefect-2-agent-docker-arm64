@@ -11,6 +11,7 @@ services:
         environment:
             - PREFECT_ACCOUNT_ID=<ID>
             - PREFECT_WORKSPACE_ID=<ID>
+            - PREFECT_PROFILE=default
             - PREFECT_WORK_QUEUES=prod,pprd
         secrets:
             - prefect-key
