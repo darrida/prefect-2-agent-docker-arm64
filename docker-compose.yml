@@ -1,0 +1,18 @@
+version: "3.8"
+
+
+secrets:
+    prefect-key:
+        file: ./secrets/prefect-key
+
+services:
+    prefect-agent:
+        image: prefect_agent:2.1.1-py3.10
+        environment:
+            - PREFECT_ACCOUNT_ID=<ID>
+            - PREFECT_WORKSPACE_ID=<ID>
+            - PREFECT_WORK_QUEUES=prod,pprd
+        secrets:
+            - prefect-key
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"    
