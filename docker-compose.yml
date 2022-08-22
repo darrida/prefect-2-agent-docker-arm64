@@ -9,6 +9,7 @@ services:
     prefect-agent:
         image: prefect_agent:2.1.1-py3.10
         environment:
+            - PREFECT_API_BASE_URL=https://api.prefect.cloud
             - PREFECT_ACCOUNT_ID=<ID>
             - PREFECT_WORKSPACE_ID=<ID>
             - PREFECT_PROFILE=default
