@@ -13,4 +13,5 @@ echo "PREFECT_API_URL: $PREFECT_API_URL"
 echo "PREFECT_PROFILE: $PREFECT_PROFILE"
 echo "PREFECT WORK QUEUES: $prefect_work_queues"
 
-prefect agent start $prefect_work_queues
+./venv/bin/python prefect agent start $prefect_work_queues
+# env/bin/python prefect agent start $prefect_work_queues  # conda

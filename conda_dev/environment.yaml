@@ -1,0 +1,6 @@
+name: production-service
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+  - prefect
