@@ -18,17 +18,3 @@ FROM --platform=linux/arm64 arm64v8/python:3.10.6-bullseye as build
 COPY --from=base venv venv
 
 RUN     ./venv/bin/pip3 install prefect==2.2.0
-RUN     ./venv/bin/pip3 install smbprotocol s3fs gcsfs adlfsdocker
-
-
-####################################################################
-# FINAL IMAGE
-FROM --platform=linux/arm64 arm64v8/python:3.10.6-slim-bullseye as application
-RUN   apt-get update && apt-get install curl -y && curl -fsSL https://get.docker.com | sh
-COPY --from=build venv venv
-
-ADD     ./startup.sh startup.sh
-ADD     ./work_queues_list.py work_queues_list.py
-RUN     chmod +x startup.sh
-
-CMD ["bash", "startup.sh"]
