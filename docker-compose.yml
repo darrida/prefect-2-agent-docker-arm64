@@ -3,7 +3,8 @@ version: "3.8"
 
 secrets:
     prefect-key:
-        file: ./secrets/prefect-key
+        external: true                  # PROD
+        # file: ./secrets/prefect-key   # TESTING
 
 services:
     prefect-agent:
@@ -14,6 +15,12 @@ services:
             - PREFECT_WORKSPACE_ID=<ID>
             - PREFECT_PROFILE=default
             - PREFECT_WORK_QUEUES=prod,pprd,default
+        deploy:
+            mode: replicated
+            replicas: 1
+            placement:
+                constraints:
+                    - node.hostname==pi4-node1
         secrets:
             - prefect-key
         volumes:
