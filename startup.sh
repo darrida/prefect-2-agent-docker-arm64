@@ -12,10 +12,5 @@ export PREFECT_API_KEY="$prefect_key"
 echo "PREFECT_API_URL: $PREFECT_API_URL"
 echo "PREFECT_PROFILE: $PREFECT_PROFILE"
 echo "PREFECT WORK QUEUES: $prefect_work_queues"
-ls -l
-pwd
-ls -l venv/bin/
 
-# bash venv/bin/activate
 venv/bin/prefect agent start $prefect_work_queues
-# env/bin/python prefect agent start $prefect_work_queues  # conda
