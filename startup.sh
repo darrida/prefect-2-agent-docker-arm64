@@ -18,5 +18,4 @@ ls -l venv/bin/
 
 # bash venv/bin/activate
 venv/bin/prefect agent start $prefect_work_queues
-pwd
 # env/bin/python prefect agent start $prefect_work_queues  # conda
