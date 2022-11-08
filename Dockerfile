@@ -1,11 +1,11 @@
 ####################################################################
 # INSTALL SLIM-BUSTER UPGRADES
-FROM    --platform=linux/arm64 arm64v8/python:3.10.6-slim-buster as buster_upgraded
+FROM    --platform=linux/arm64 arm64v8/python:3.11-slim-buster as buster_upgraded
 RUN     apt-get update && apt-get upgrade -y --no-install-recommends
 
 ####################################################################
 # BUILD PACKAGE WHEELS
-FROM --platform=linux/arm64 arm64v8/python:3.10.6-buster as package_wheels
+FROM --platform=linux/arm64 arm64v8/python:3.11-buster as package_wheels
 RUN   apt-get update && apt-get upgrade -y --no-install-recommends
 
 WORKDIR /wheels
